@@ -5,6 +5,7 @@ class Listening
   end
 
   def add(track)
+    fail "You must enter a track title" if track == nil
     @tracks << "#{@track_number.to_s}. #{track}"
     @track_number += 1
   end

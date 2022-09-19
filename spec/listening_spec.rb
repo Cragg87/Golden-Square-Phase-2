@@ -17,4 +17,11 @@ RSpec.describe Listening do
       expect(listening.track_list).to eq ("Track list: \n" + "1. Track 1 \n" + "2. Track 2")
     end
   end
+
+  context 'user enters no track' do
+    it 'fails' do
+      listening = Listening.new
+      expect{ listening.add(nil) }.to raise_error "You must enter a track title"
+    end
+  end
 end

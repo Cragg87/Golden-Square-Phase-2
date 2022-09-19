@@ -10,14 +10,16 @@ I want to add tracks I've listened to and see a list of them.
 class Listening
   def initialize
     @tracks = Array.new # added tracks will be stored in this array
+    track_number = 1
   end
 
   def add(track) # track is a string
-    # adds track to @tracks array
+    # adds track and track number to @tracks array
+    # adds 1 to track_number count
   end
 
   def track_list
-    # returns @tracks array as a string
+    # returns heading and @tracks array as a string
   end
 end
 
