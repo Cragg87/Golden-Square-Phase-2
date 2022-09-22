@@ -1,20 +1,21 @@
-class Todo_list
-  def initialize
-    @todo_list = Array.new
+require_relative '../lib/todo_list.rb'
+
+class Todo
+  def initialize(task) # task is a string
+    @task = task
+    @complete = false
+
   end
 
-  def add(task) # task is a string
-    fail "No task set" if task == nil
-    @todo_list << task
+  def task
+    @task
   end
 
-  def tasks
-  # returns @todo_list as a string
-  "Todo list: #{@todo_list.join(", ")}"
+  def mark_done!
+    @complete = true
   end
 
-  def completed_tasks(user_input)
-    fail "No tasks completed" if user_input == nil
-    @todo_list.delete(user_input)
+  def done?
+    @complete == true ? true : false
   end
 end

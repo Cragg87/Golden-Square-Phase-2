@@ -1,18 +1,37 @@
-# Design
+require 'diary_entry.rb'
 
-# A method called make_snippet that takes a string as an argument and returns the first five words and then a '...' if there are more than that.
+class Diary
+  def initialize
+    @diary = []
+  end
 
-# Examples:
+  def add(entry)
+    @diary << entry
+  end
 
-# "Here are five word examples." -> "Here are five word examples."
-# "Here is an example with more than five words." -> "Here is an example with..."
-# "Here are four words." -> "Here are four words."
-# "" -> ""
+  def all
+    @diary
+  end
 
-def make_snippet(string)
-  if string.split.size > 5
-    string.split[0...5].join(" ") + "..."
-  else
-    string.split[0...5].join(" ")
+  def count_words
+    return @diary.map do |entry|
+      entry.count_words
+    end.sum
+  end
+
+  def reading_time(wpm) # wpm is an integer representing
+                        # the number of words the user can read per minute
+    # Returns an integer representing an estimate of the reading time in minutes
+    # if the user were to read all entries in the diary.
+  end
+
+  def find_best_entry_for_reading_time(wpm, minutes)
+        # `wpm` is an integer representing the number of words the user can read
+        # per minute.
+        # `minutes` is an integer representing the number of minutes the user
+        # has to read.
+    # Returns an instance of diary entry representing the entry that is closest 
+    # to, but not over, the length that the user could read in the minutes they
+    # have available given their reading speed.
   end
 end
