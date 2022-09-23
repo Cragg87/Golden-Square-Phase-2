@@ -18,6 +18,6 @@ class TodoList
   end
 
   def give_up!
-    @todo_list.map { |task| task.done? = true }
+    @todo_list.map { |task| task.mark_done! }
   end
 end

@@ -35,7 +35,17 @@ RSpec.describe 'Todo Integration' do
       todo_2 = Todo.new("Make tea")
       todo_list.add(todo_1)
       todo_list.add(todo_2)
-      expect(todo_list.give_up!).to eq true
+      todo_list.give_up!
+      expect(todo_list.complete).to eq [todo_1, todo_2]
+    end
+
+    it 'returns empty array of incomplete tasks' do
+      todo_1 = Todo.new("Get milk")
+      todo_2 = Todo.new("Make tea")
+      todo_list.add(todo_1)
+      todo_list.add(todo_2)
+      todo_list.give_up!
+      expect(todo_list.incomplete).to eq []
     end
   end
 end
